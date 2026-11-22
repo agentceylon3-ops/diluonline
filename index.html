@@ -3136,6 +3136,31 @@ html {
   }
 }
 
+/*register*/
+#seminarRegForm select#participateCategory {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background-color: #16181d;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 14.5px;
+  line-height: 1.4;
+  outline: none;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+#seminarRegForm select#participateCategory:focus {
+  border-color: #25d366;
+  box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.2);
+}
+
+#seminarRegForm select#participateCategory option {
+  background-color: #16181d;
+  color: #ffffff;
+}
+
 
   </style>
 </head>
@@ -3167,7 +3192,7 @@ html {
       </h1>
 
       <p class="description" data-aos="fade-up" data-aos-duration="1800">
-        සා.පෙළ විභාගයට තව දින කිහිපයයි. — ඉංග්‍රීසි අමාරුයිද? 10/11 දරුවො හැමෝටම එක දවසින් ගොඩදාමු.
+        10/11 දරුවො හැමෝටම සහභාගී වෙන්න පුලුවන් Golden Chance එකක්.
       </p>
 
       <div class="btn-group">
@@ -3205,7 +3230,7 @@ html {
     <div class="info-box venue-box">
       
       <div class="info-text scroll-anim fade-up">
-        <strong>වේලිඔය - Vivid Canyon English Academy</strong>
+        <strong> Vivid Canyon English Academy</strong>
       </div>
     </div>
 
@@ -3363,41 +3388,6 @@ html {
 </section>
 
 
-<section class="location-section">
-  <div class="location-container">
-    
-    <!-- Section Badge -->
-    
-    
-    <!-- Heading -->
-    <h2 class="loc-title scroll-anim fade-up">සම්මන්ත්‍රණය පැවැත්වෙන ස්ථානය</h2>
-    <p class="loc-venue-name scroll-anim fade-up">vivid canyon English Academy, Welioya</p>
-
-    <!-- Google Map Embed Box -->
-    <div class="map-wrapper scroll-anim fade-up">
-      <!-- මෙතනට ඔයාගේ Google Map iframe කෝඩ් එක දාන්න පුළුවන් -->
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.9433476941476!2d80.89958567779836!3d6.653944393340829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae40dea8c718bb3%3A0x85adb8926f25a710!2zV2VsaW95YSBDYWIgc2VydmljZSAtIOC3gOC3muC2veC3kuC2lOC2uiDgtprgt5Dgtrbgt4og4LeD4La74LeK4LeA4LeS4LeD4LeK!5e0!3m2!1sen!2slk!4v1795048856771!5m2!1sen!2slk"  
-        width="100%" 
-        height="240" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-
-
-    <!-- Action Buttons (Directions & WhatsApp) -->
-    <div class="loc-action-buttons scroll-anim fade-up">
-      <a href="https://maps.app.goo.gl/LF4J8WiMRGauyaf96" target="_blank" class="loc-btn map-btn">
-        <span>(Google Maps)</span>
-      </a>
-    </div>
-
-  </div>
-</section>
-
 <section class="results-section">
   <div class="results-container">
     <h2 class="results-title">විශිෂ්ට ප්‍රතිඵල ලැබූ සිසුන්</h2>
@@ -3490,15 +3480,14 @@ html {
 
 <section class="register-section" id="register">
   <div class="register-container" id="register-form">
-    
-    
+
     <!-- Heading -->
     <h2 class="reg-title scroll-anim fade-up">Online සම්මන්ත්‍රණය සඳහා ලියාපදිංචි වන්න</h2>
     <p class="reg-subtitle scroll-anim fade-up">පහත තොරතුරු නිවැරදිව පුරවා WhatsApp හරහා යොමු කරන්න</p>
 
     <!-- Registration Form -->
     <form id="seminarRegForm" class="reg-form">
-      
+
       <div class="form-group scroll-anim fade-up">
         <label for="studentName">දරුවාගේ නම</label>
         <input type="text" id="studentName" placeholder="උදා: කසුන් පෙරේරා" required>
@@ -3512,6 +3501,15 @@ html {
       <div class="form-group scroll-anim fade-up">
         <label for="studentPhone">දුරකථන අංකය (WhatsApp)</label>
         <input type="tel" id="studentPhone" placeholder="උදා: 07X XXXXXXX" required>
+      </div>
+
+      <div class="form-group scroll-anim fade-up">
+        <label for="participateCategory">සහභාගී වන කාණ්ඩය</label>
+        <select id="participateCategory" required>
+          <option value="" disabled selected>තෝරන්න</option>
+          <option value="සෙමිනා එකට">සෙමිනා එකට</option>
+          <option value="2027 class">2027 class</option>
+        </select>
       </div>
 
       <!-- Green WhatsApp Send Button -->
@@ -3842,34 +3840,36 @@ window.onclick = function(event) {
 
   
 
-  //register form*/
-  document.getElementById("seminarRegForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+  
+// register form
+document.getElementById("seminarRegForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    const name = document.getElementById("studentName").value.trim();
-    const school = document.getElementById("studentSchool").value.trim();
-    const phone = document.getElementById("studentPhone").value.trim();
+  const name = document.getElementById("studentName").value.trim();
+  const school = document.getElementById("studentSchool").value.trim();
+  const phone = document.getElementById("studentPhone").value.trim();
+  const category = document.getElementById("participateCategory").value.trim();
 
-    // Target WhatsApp Number (076 0699955 -> 94760699955)
-    const waNumber = "94763514552";
+  // Target WhatsApp Number
+  const waNumber = "94763514552";
 
-    // Formatted WhatsApp Message
-    const message = 
-      `*English අවසාන සම්මන්ත්‍රණය - ලියාපදිංචි වීම*\n\n` +
-      ` *දරුවාගේ නම:* ${name}\n` +
-      ` *පාසල:* ${school}\n` +
-      ` *දුරකථන අංකය:* ${phone}\n\n` +
-      `_(Vivid canyon English Academy - Welioya)_`;
+  // Formatted WhatsApp Message
+  const message =
+    `*English අවසාන සම්මන්ත්‍රණය - ලියාපදිංචි වීම*\n\n` +
+    ` *දරුවාගේ නම:* ${name}\n` +
+    ` *පාසල:* ${school}\n` +
+    ` *දුරකථන අංකය:* ${phone}\n` +
+    ` *සහභාගී වන කාණ්ඩය:* ${category}\n\n` +
+    `_(Vivid canyon English Academy - Welioya)_`;
 
-    const whatsappURL = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+  const whatsappURL = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
 
-    // Open WhatsApp in new tab / app
-    window.open(whatsappURL, "_blank");
-  });
+  // Open WhatsApp in new tab / app
+  window.open(whatsappURL, "_blank");
+});
 
-
-  //comment 
-  function openLightbox(cardElement) {
+// comment / lightbox
+function openLightbox(cardElement) {
   const img = cardElement.querySelector('img');
   const modal = document.getElementById('feedbackLightbox');
   const modalImg = document.getElementById('lightboxImg');
